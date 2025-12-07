@@ -1,15 +1,28 @@
-FROM node:hydrogen-alpine3.17 as builder
-
-ENV NODE_OPTIONS="--max-old-space-size=8196"
+FROM node:22-alpine AS builder
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci
 
 COPY . .
 
+RUN npm run build
+
+FROM node:22-alpine AS runner
+
+WORKDIR /usr/src/app
+ENV NODE_ENV=production
+
+COPY --chown=node:node package*.json ./
+
+RUN npm ci && npm cache clean --force
+
+COPY --chown=node:node --from=builder /usr/src/app/dist ./dist
+
 EXPOSE 3000
 
-CMD ["npm", "run", "start:server"]
+USER node
+
+CMD ["npm", "run", "start"]
