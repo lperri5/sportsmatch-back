@@ -20,7 +20,8 @@ class AWSService {
             region: this.PROFILE_PICTURES_REGION,
             accessKeyId: process.env.S3_ACCESS_KEY,
             secretAccessKey: process.env.S3_SECRET_KEY,
-            sessionToken: process.env.S3_SESSION_TOKEN
+            sessionToken: process.env.S3_SESSION_TOKEN,
+            endpoint: process.env.S3_ENDPOINT
         });
     }
 

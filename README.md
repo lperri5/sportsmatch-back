@@ -49,6 +49,7 @@ Para ejecutar la aplicación localmente, sigue estos pasos:
 | `S3_SESSION_TOKEN`             | Token de sesión para Amazon S3 (si aplica) |
 | `S3_REGION`                    | Región del bucket de Amazon S3 |
 | `S3_BUCKET`                    | Nombre del bucket en Amazon S3 |
+| `S3_ENDPOINT`                  | Endpoint del bucket en Amazon S3 |
 
 ## Ejecución
 
