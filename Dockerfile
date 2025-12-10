@@ -19,6 +19,8 @@ COPY --chown=node:node package*.json ./
 
 RUN npm ci && npm cache clean --force
 
+COPY ./src/services/templates ./src/services/templates
+
 COPY --chown=node:node --from=builder /usr/src/app/dist ./dist
 
 EXPOSE 3000
