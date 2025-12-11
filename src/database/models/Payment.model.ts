@@ -46,7 +46,7 @@ export default class Payment extends Model {
     transactionDate!: Date;
 
     @Column({
-        type: DataType.INTEGER,
+        type: DataType.INTEGER.UNSIGNED,
         allowNull: true,
         field: 'mp_id'
     })
