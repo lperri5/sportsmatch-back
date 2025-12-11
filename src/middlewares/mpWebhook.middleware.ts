@@ -32,6 +32,8 @@ function parseXSignature(
 }
 
 const MpWebhookMiddleware: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
+    console.debug('mp-webhook', req.body);
+
     const headers = req.headers;
     const query = req.query;
 
