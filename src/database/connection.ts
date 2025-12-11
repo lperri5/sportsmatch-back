@@ -18,7 +18,7 @@ if(process.env.IS_LOCAL == "true"){
         port: +(process.env.DB_PORT ?? 5433),
         models: [__dirname + '/models'],
         sync: { force: process.env.DB_SYNC_FORCE === "true" },
-        logging: console.log,
+        logging: false,
     });
 } else {
     if (!process.env.DATABASE_URL) {
@@ -35,7 +35,7 @@ if(process.env.IS_LOCAL == "true"){
         },
         models: [path.join(__dirname, "./models")],
         sync: { force: false },
-        logging: console.log,
+        logging: false,
         define: {
             schema: 'public',
         },
